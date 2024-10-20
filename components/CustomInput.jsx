@@ -5,8 +5,8 @@ import { Colors } from '../constants/Colors';
 export default function CustomInput({ 
   placeholder, 
   type = 'text', 
-  rightIcon,
-  leftIcon = false
+  rightIcon = false,
+  leftIcon 
 }) {
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -17,8 +17,8 @@ export default function CustomInput({
 
   return (
     <View style={styles.container}>
-      {rightIcon && (
-        <Image source={rightIcon} style={[styles.icon, styles.rightIcon]} />
+      {leftIcon && (
+        <Image source={leftIcon} style={[styles.icon, styles.rightIcon]} />
       )}
       <TextInput
         style={styles.input}
@@ -27,7 +27,7 @@ export default function CustomInput({
         keyboardType={type === 'number' ? 'numeric' : 'default'}
         placeholderTextColor={'#9B9DA2'}
       />
-      {leftIcon && (
+      {rightIcon && (
         <TouchableOpacity onPress={togglePasswordVisibility} style={styles.leftIcon}>
         <Image 
           source={isPasswordVisible ? require("../assets/icons/show.png") : require("../assets/icons/hide.png")} 
@@ -41,19 +41,18 @@ export default function CustomInput({
 
 const styles = StyleSheet.create({
   container: {
-    position: "relative",
-    width: "100%",
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
     shadowColor: "#FFFFFF",
     shadowOpacity: 0.5,
     shadowRadius: 4,
+    borderRadius: 10,
+    // borderColor: Colors.primary[0],
+    // borderWidth: 1
+  },
+  input: {
     paddingVertical: 12,
     paddingHorizontal: 48,
+    fontSize: 16,
     color: Colors.text,
-    borderRadius: 10,
   },
   rightIcon: {
     position: 'absolute',

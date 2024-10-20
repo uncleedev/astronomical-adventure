@@ -30,7 +30,9 @@ const styles = StyleSheet.create({
     shadowColor: "#FFFFFF",
     shadowOpacity: 0.5,
     shadowRadius: 4,
-    borderRadius: 10
+    borderRadius: 10,
+    borderColor: Colors.primary[0],
+    borderWidth: 1
   },
   content: {
     flexDirection: 'row', 

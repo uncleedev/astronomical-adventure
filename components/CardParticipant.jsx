@@ -3,47 +3,47 @@ import React, { useState } from 'react';
 import { Colors } from '../constants/Colors';
 import Typography from './Typography';
 
-export default function CardPlanet({ srcpath, name, description, onPress }) {
+export default function CardParticipant({ avatar, lastname, role, description }) {
   const [isHovered, setIsHovered] = useState(false);
   const defaultImage = require("../assets/images/icon.png");
 
   return (
     <TouchableOpacity
       style={[styles.container, isHovered && styles.hoveredContainer]}
-      onPress={onPress}
       onPressIn={() => setIsHovered(true)}
       onPressOut={() => setIsHovered(false)}
     >
- 
-      <View style={styles.imageContainer}>
+      <View style={styles.avatarContainer}>
         <Image
-          style={styles.image}
-          source={srcpath ? srcpath : defaultImage}
+          source={avatar ? avatar : defaultImage}
+          style={styles.avatar}
         />
       </View>
 
       <View style={styles.infoContainer}>
-        <Typography type={"h3"} myStyle={styles.name}>{name ? name : "Planet"}</Typography>
-        <Typography type={"h4"} myStyle={styles.description}>{description ? description : "Some Details"}</Typography>
+        <Typography type={"h4"} myStyle={styles.name}>{lastname}</Typography>
+        <Typography type={"h3"} color={Colors.accent[0]} myStyle={styles.role}>{role}</Typography>
+        <Typography type={"p"} myStyle={styles.description}>{description}</Typography>
       </View>
     </TouchableOpacity>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "column",
+    flexDirection: "row",
     alignItems: 'center',
-    padding: 12,
-    height: 196,
+    padding: 16,
+    height: "auto",
     width: "100%",
-    borderRadius: 10,
+    backgroundColor: Colors.background,
+    borderRadius: 20,
     shadowColor: "#FFFFFF",
-    shadowOpacity: 0.6,
+    shadowOpacity: 0.5,
     shadowRadius: 4,
+    justifyContent: "space-between",
     borderColor: Colors.primary[0],
-    borderWidth: 2,
-    marginLeft: 1
+    borderWidth: 1
   },
 
   hoveredContainer: {
@@ -51,22 +51,33 @@ const styles = StyleSheet.create({
     borderColor: Colors.primary[0],
   },
 
-  imageContainer: {
-    marginBottom: 16,
+  avatarContainer: {
+    marginRight: 16,
   },
 
-  image: {
-    height: 100,
-    width: 100,
+  avatar: {
+    height: 60,
+    width: 60,
     borderRadius: 50,
+    borderWidth: 1,
     borderColor: Colors.background,
   },
 
   infoContainer: {
-    width: "100%",
+    flex: 1,
   },
 
   name: {
+    textTransform: "uppercase",
     marginBottom: 8,
+  },
+
+  role: {
+    textTransform: "uppercase",
+    marginBottom: 8,
+  },
+
+  description: {
+    width: 190,
   },
 });

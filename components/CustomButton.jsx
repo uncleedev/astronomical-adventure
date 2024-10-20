@@ -16,6 +16,10 @@ export default function CustomButton({
       style={[style, styles.button, disabled]} 
     >
       <Pressable
+        style={{
+          width: "100%",
+          alignItems: "center"
+        }}
         onPress={disabled ? null : onPress} 
         disabled={disabled} 
       >
@@ -41,5 +45,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     padding: 10,
     borderRadius: 10,
+    alignItems: 'center'
   }
 });

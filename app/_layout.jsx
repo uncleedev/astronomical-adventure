@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Stack } from 'expo-router'
 import { useFonts } from 'expo-font';
@@ -17,27 +17,44 @@ export default function RootLayout() {
     }
 
   return (
-    <Stack>
-        <Stack.Screen 
-          name='index'
-          options={{
-            headerShown: false
-          }} 
-        />
-        <Stack.Screen 
-          name='login/index'
-          options={{
-            headerShown: false
-          }} 
-        />
-        <Stack.Screen 
-          name='home/index'
-          options={{
-            headerShown: false
-          }} 
-        />
-    </Stack>
+      <Stack>
+          <Stack.Screen 
+            name='index'
+            options={{
+              headerShown: false
+            }} 
+          />
+          <Stack.Screen 
+            name='login/index'
+            options={{
+              headerShown: false
+            }} 
+          />
+          <Stack.Screen 
+            name='home/index'
+            options={{
+              headerShown: false
+            }} 
+          />
+          <Stack.Screen 
+            name='planets/[id]/index'
+            options={{
+              headerShown: false
+            }} 
+          />
+          <Stack.Screen 
+            name='about/index'
+            options={{
+              headerShown: false
+            }} 
+          />
+
+      </Stack>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+
+  }
+})

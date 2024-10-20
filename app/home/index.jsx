@@ -1,84 +1,129 @@
-import { ImageBackground, StyleSheet, Text, View, ScrollView } from 'react-native';
-import React from 'react';
-import Typography from '../../components/Typography';
-import { Colors } from '../../constants/Colors';
-import { Planets } from '../../constants/Planets';
+import { ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
+import React, { useState } from 'react'
+import Typography from '../../components/Typography'
+import { router } from 'expo-router';
 import CardPlanet from '../../components/CardPlanet';
+import { Planets } from '../../constants/Planets';
+import { Colors } from '../../constants/Colors';
+import Navigation from '../../components/Navigation';
 
-export default function Index() {
+export default function HomeView() {
 
-    const renderPlanetPairs = () => {
-        const pairs = [];
-        for (let i = 0; i < Planets.length; i += 2) {
-            pairs.push(Planets.slice(i, i + 2));
-        }
-        return pairs;
-    };
+  const renderPlanetPairs = () => {
+    const pairs = [];
+    for (let i = 0; i < Planets.length; i += 2) {
+      pairs.push(Planets.slice(i, i + 2));
+    }
+    return pairs;
+  };
 
   return (
-    <ImageBackground
-      source={require("../../assets/images/wrapper-bac.png")}
-      style={styles.container}
+    <SafeAreaView
+      style={{
+        flex: 1,
+        width: "100%",
+      }}
     >
+      <Image  
+        source={require("../../assets/images/outerspace.png")}  
+        style={styles.image} 
+      />
+
       <View
         style={{
-            gap: 16
+          position: "relative",
+          width: "100%",
+          height: "100%",
+          justifyContent: "space-between",
         }}
       >
-        <Typography 
-          type={"h2"} 
-          myStyle={{
-            width: 79, 
-            borderBottomColor: Colors.accent[0], 
-            borderBottomWidth: 1,
-            paddingBottom: 6 
+
+        
+        <View 
+          style={{
+            paddingHorizontal: 24,
+            paddingTop: 24,
           }}
         >
-          Planets
-        </Typography>
+          <Navigation isBack={false} />
+        </View>
 
-        <ScrollView
-          style={styles.scrollView}
+        <View
+          style={styles.form}
         >
-          {renderPlanetPairs().map((pair, index) => (
-            <View key={index} style={styles.row}>
-              {pair.map((planet) => (
-                <View key={planet.name} style={styles.cardContainer}>
-                  <CardPlanet 
-                    name={planet.name}
-                    description={planet.description}
-                    srcpath={planet.srcpath}
-                  />
+          <Typography type={"h2"} myStyle={{borderBottomColor: Colors.accent[0], borderBottomWidth: 1, width: 79, paddingBottom: 6}}>Planets</Typography>
+
+          <ScrollView
+            style={styles.scrollView}
+          >
+            <View
+              style={{
+                width: "100%",
+                gap: 10
+              }}
+            >
+              {renderPlanetPairs().map((pair, index) => (
+                <View key={index} style={styles.row}>
+                  {pair.map((planet) => (
+                    <View key={planet.name} style={{ width: "48%"}}>
+                      <CardPlanet 
+                        name={planet.name}
+                        description={planet.description}
+                        srcpath={planet.image}
+                        onPress={() => router.push({
+                          pathname: '/planets/[id]',
+                          params: planet
+                        })}
+                      />
+                    </View>
+                  ))}
                 </View>
               ))}
             </View>
-          ))}
-        </ScrollView>
+          </ScrollView>
+        </View>
       </View>
-    </ImageBackground>
-  );
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: 393,
-    height: 852,
+    flex: 1
+  },
+  form: {
     paddingHorizontal: 24,
     paddingTop: 24,
-    display: 'flex',
-    justifyContent: "flex-end",
+    borderTopStartRadius: 30,
+    borderTopEndRadius: 30,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: Colors.background,
+    borderTopWidth: 2,
+    borderColor: Colors.accent[0]
+  },
+  icon: {
+    width: 24,
+    height: 24,
+  },
+  image: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    resizeMode: "cover",
   },
   row: {
+    width: "100%",
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between'
   },
   scrollView: {
     width: "100%",
-    paddingTop: 5,
     height: 451,
-    overflow: 'hidden', 
+    overflow: 'hidden',
+    marginTop: 16
   },
-  cardContainer: {
-    margin: 8.5 
-  },
-});
+})
