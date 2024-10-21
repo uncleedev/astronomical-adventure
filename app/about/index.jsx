@@ -24,10 +24,10 @@ export default function AboutView() {
         <Typography type={"h2"} myStyle={{borderBottomColor: Colors.accent[0], borderBottomWidth: 1, width: 140, paddingBottom: 6}}>Participation</Typography>
         
         <ScrollView
-          style={{marginTop: 16}}
+          style={{marginTop: 16, height: 458}}
         >
           <View
-            style={{gap: 16}}
+            style={{gap: 16, paddingBottom: 24}}
           >
             {Participants.map((student) => (
               <CardParticipant 

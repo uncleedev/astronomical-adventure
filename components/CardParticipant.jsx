@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { Colors } from '../constants/Colors';
 import Typography from './Typography';
+import BoxShadow from './BoxShadow';
 
 export default function CardParticipant({ avatar, lastname, role, description }) {
   const [isHovered, setIsHovered] = useState(false);

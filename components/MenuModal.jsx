@@ -31,19 +31,27 @@ export default function MenuModal({ setOpenModal, onCloseModal }) {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute', 
-    top: 0, 
-    left: 0, 
-    right: 0, 
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
     backgroundColor: Colors.background,
     alignItems: "center",
     paddingTop: 32,
     paddingHorizontal: 16,
     paddingBottom: 16,
     borderRadius: 10,
-    gap: 12, 
-    elevation: 5,
-    zIndex: 1000, 
+    gap: 12,
+    zIndex: 1000,
+    elevation: 5, // android
+    // ios
+    shadowColor: '#ffffff', 
+    shadowOffset: {
+      width: 0,
+      height: 2, 
+    },
+    shadowOpacity: 0.3, 
+    shadowRadius: 4, 
   },
   closeButton: {
     position: "absolute",

@@ -14,7 +14,7 @@ export const Participants = [
     {
         lastname: "Fernandez",
         role: "USER PERSONA",
-        description: "I created a wireframe and the user experience. I am also the project manager, and I developed this application.",
+        description: "I'm in charge of researching and selecting icons and planet images that represent each user persona",
         avatar: require("../assets/images/fernandez.jpg")
     },
     {

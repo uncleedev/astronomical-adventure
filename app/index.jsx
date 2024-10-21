@@ -7,6 +7,7 @@ import { router } from 'expo-router'
 import { Participants } from '../constants/Participants';
 import CardParticipant from '../components/CardParticipant';
 import Navigation from '../components/Navigation';
+import ImageAnimation from '../components/ImageAnimation';
 
 export default function Index() {
   return (
@@ -26,7 +27,6 @@ export default function Index() {
       >
       
         <View>
-          
         </View>
 
         <View

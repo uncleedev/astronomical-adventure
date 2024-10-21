@@ -4,6 +4,7 @@ import Typography from '../../../components/Typography'
 import Navigation from '../../../components/Navigation';
 import { Colors } from '../../../constants/Colors';
 import { useLocalSearchParams } from 'expo-router';
+import ImageAnimation from '../../../components/ImageAnimation';
 
 export default function PlanetView() {
     const data = useLocalSearchParams()
@@ -44,7 +45,7 @@ export default function PlanetView() {
                     alignItems: 'center'
                 }}
             >
-                <Image source={data.image} style={{height: 200, width: 200}}/>
+                <ImageAnimation image={data.image}/>
              </View>
         </View>
 
@@ -63,7 +64,8 @@ export default function PlanetView() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    zIndex: -1
   },
   form: {
     height: 526,

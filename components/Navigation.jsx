@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import MenuModal from './MenuModal';
 
 export default function Navigation({ isBack = false }) {
-  const [openModal, setOpenModal] = useState(false); // Default to closed
+  const [openModal, setOpenModal] = useState(false); 
 
   const handleBackPress = () => {
     router.push("home");

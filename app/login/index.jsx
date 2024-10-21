@@ -92,7 +92,8 @@ export default function LoginView() {
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                gap: 8
+                gap: 8,
+                marginBottom: 24,
               }}
             >
               <TouchableOpacity onPress={toggleCheckbox}>
@@ -110,7 +111,6 @@ export default function LoginView() {
 
           <CustomButton 
             title={"LOGIN"}
-            style={{marginTop: 24}}
             onPress={() => router.push("home")}
           />
 

@@ -2,6 +2,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../constants/Colors';
 import Typography from './Typography';
+import BoxShadow from './BoxShadow';
 
 export default function CustomButton({
   title,
@@ -11,38 +12,37 @@ export default function CustomButton({
   disabled = false, 
 }) {
   return (
-    <LinearGradient
-      colors={colors}
-      style={[style, styles.button, disabled]} 
-    >
-      <Pressable
-        style={{
-          width: "100%",
-          alignItems: "center"
-        }}
-        onPress={disabled ? null : onPress} 
-        disabled={disabled} 
+    <BoxShadow >
+      <LinearGradient
+        colors={colors}
+        style={[style, styles.button, disabled]} 
       >
-        <Typography
+        <Pressable
           style={{
-            color: disabled ? Colors.textDisabled : Colors.text,
-            textAlign: 'center',
+            width: "100%",
+            alignItems: "center"
           }}
-          type={"h2"}
+          onPress={disabled ? null : onPress} 
+          disabled={disabled} 
         >
-          {title}
-        </Typography>
-      </Pressable>
-    </LinearGradient>
+          <Typography
+            style={{
+              color: disabled ? Colors.textDisabled : Colors.text,
+              textAlign: 'center',
+            }}
+            type={"h2"}
+          >
+            {title}
+          </Typography>
+        </Pressable>
+      </LinearGradient>
+    </BoxShadow>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
     width: '100%',
-    shadowColor: "#FFFFFF",
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
     padding: 10,
     borderRadius: 10,
     alignItems: 'center'
