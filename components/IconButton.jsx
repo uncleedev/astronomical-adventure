@@ -6,7 +6,10 @@ import BoxShadow from './BoxShadow';
 
 export default function IconButton({ title, icon, onPress, disabled, mystyle }) {
   return (
-    <BoxShadow>
+    <BoxShadow
+      cmWidth={"100%"}
+      cmElevation={2}
+    >
       <Pressable 
         onPress={disabled ? null : onPress} 
         disabled={disabled} 

@@ -7,6 +7,9 @@ import HorizontalLine from '../../components/HorizontalLine';
 import IconButton from '../../components/IconButton';
 import { router } from 'expo-router';
 import { Colors } from '../../constants/Colors';
+import BackgroundImage from '../../components/BackgroundImage';
+import Divider from '../../components/Divider';
+import RenderPlanets from '../../components/RenderPlanets';
 
 export default function LoginView() {
 
@@ -17,16 +20,7 @@ export default function LoginView() {
   };
 
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-      }}
-    >
-      <Image  
-        source={require("../../assets/images/outerspace.png")}  
-        style={styles.image} 
-      />
-
+    <BackgroundImage>
       <View
         style={{
           position: "relative",
@@ -36,16 +30,9 @@ export default function LoginView() {
         }}
       >
 
-        
-        <View>
-          <Text>Hello</Text>
-        </View>
-
-        <View
-          style={styles.form}
-        >
-
-
+        <RenderPlanets />
+      
+        <Divider>
           <View
             style={{
               display: "flex",
@@ -85,15 +72,17 @@ export default function LoginView() {
               alignItems: "center",
               justifyContent: 'space-between',
               gap: 8,
-              marginTop: 8
+              marginTop: 8,
+              marginBottom: 16
             }}
           >
+
             <View
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
+                justifyContent: "center",
                 gap: 8,
-                marginBottom: 24,
               }}
             >
               <TouchableOpacity onPress={toggleCheckbox}>
@@ -106,7 +95,8 @@ export default function LoginView() {
               <Typography type={"h4"}>Remember me</Typography>
             </View>
 
-            <Typography  type={"h4"} color={'#FF81B5'}>Forgot password?</Typography>
+            <Typography  type={"h4"} color={'#FF81B5'}>Forgot password?</Typography>  
+
           </View>
 
           <CustomButton 
@@ -124,11 +114,11 @@ export default function LoginView() {
             }}
           >
 
-            <HorizontalLine width={144}/>
+            <HorizontalLine width={"40%"}/>
 
             <Typography type={"h3"}>OR</Typography>
 
-            <HorizontalLine width={144}/>
+            <HorizontalLine width={"40%"}/>
           </View>
 
           <IconButton 
@@ -150,16 +140,13 @@ export default function LoginView() {
             <Typography  type={"h4"} color={'#FF81B5'}>Sign up</Typography>
           </View>
 
-        </View>
+        </Divider>
       </View>
-    </SafeAreaView>
+    </BackgroundImage>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
   form: {
     paddingHorizontal: 24,
     paddingTop: 24,

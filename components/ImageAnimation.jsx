@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, Image, StyleSheet, View, Easing } from 'react-native';
 
-const ImageAnimation = ({image, cmheight, cmwidth}) => {
+const ImageAnimation = ({image, cmheight, cmwidth, cmstyle}) => {
   const rotateValue = useRef(new Animated.Value(0)).current;
 
   const defaultImage = require("../assets/images/icon.png")
@@ -28,10 +28,12 @@ const ImageAnimation = ({image, cmheight, cmwidth}) => {
   });
 
   return (
+    <View style={styles.container}>
       <Animated.Image
         source={image ? image : defaultImage}
-        style={[{height: cmheight ? cmheight : 200, width: cmwidth ? cmheight : 200}, { transform: [{ rotate: rotateInterpolate }] }]}
+        style={[{height: cmheight ? cmheight : 200, width: cmwidth ? cmheight : 200}, { transform: [{ rotate: rotateInterpolate }] }, cmstyle]}
       />
+    </View>
   );
 };
 

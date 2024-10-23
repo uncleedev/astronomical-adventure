@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 
-export default function BoxShadow({children, customRadius}) {
+export default function BoxShadow({children, cmRadius, cmHeight, cmWidth, cmStyle, cmElevation }) {
   return (
-    <View style={[styles.shadow, {borderRadius: customRadius ? customRadius : 10}]}>
+    <View style={[styles.shadow, {borderRadius: cmRadius ? cmRadius : 10},  {height: cmHeight, width: cmWidth}, {elevation: cmElevation ? cmElevation : 0}, cmStyle]}>
       {children}
     </View>
   )
@@ -10,7 +10,6 @@ export default function BoxShadow({children, customRadius}) {
 
 const styles = StyleSheet.create({
     shadow: {
-        width: "100%",
             // iOS
         shadowColor: '#ffffff', 
         shadowOffset: {
@@ -19,7 +18,5 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.3, 
         shadowRadius: 4, 
-        // Android
-        elevation: 3, 
     }
 })

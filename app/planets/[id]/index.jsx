@@ -5,101 +5,38 @@ import Navigation from '../../../components/Navigation';
 import { Colors } from '../../../constants/Colors';
 import { useLocalSearchParams } from 'expo-router';
 import ImageAnimation from '../../../components/ImageAnimation';
+import BackgroundImage from '../../../components/BackgroundImage';
+import Divider from '../../../components/Divider';
+import CustomSwiper from '../../../components/CustomSwiper';
+import { Planets } from '../../../constants/Planets';
 
 export default function PlanetView() {
-    const data = useLocalSearchParams()
+    const data = useLocalSearchParams();
+    const id = Number(data.id);
 
-  return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        width: "100%",
-      }}
-    >
-      <Image  
-        source={require("../../../assets/images/outerspace.png")}  
-        style={styles.image} 
-      />
-
-      <View
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-
-        
-        <View 
-            style={{
-                paddingHorizontal: 24,
-                paddingTop: 24,
-            }}
-        >
-            <Navigation isBack={true} />
-
-            <View 
+    return (
+        <BackgroundImage>
+            <View
                 style={{
+                    position: "relative",
                     width: "100%",
-                    alignItems: 'center'
+                    height: "100%",
+                    justifyContent: "space-between",
                 }}
             >
-                <ImageAnimation image={data.image}/>
-             </View>
-        </View>
-
-        <View
-          style={styles.form}
-        >
-          <Typography type={"h2"} myStyle={{borderBottomColor: Colors.accent[0], borderBottomWidth: 1, width: 100, paddingBottom: 6}}>{data.name}</Typography>
-
-          <Typography type={"p"} myStyle={{letterSpacing: 2, marginTop: 16}}>{data.details}</Typography>
-
-        </View>
-      </View>
-    </SafeAreaView>
-  )
+                <View 
+                    style={{
+                        paddingHorizontal: 24,
+                        paddingTop: 24,
+                    }}
+                >
+                    <Navigation isBack={true} />
+                </View>
+                <CustomSwiper index={id}/>
+            </View>
+        </BackgroundImage>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    zIndex: -1
-  },
-  form: {
-    height: 526,
-    paddingHorizontal: 24,
-    paddingTop: 24,
-    borderTopStartRadius: 30,
-    borderTopEndRadius: 30,
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: Colors.background,
-    borderTopWidth: 2,
-    borderColor: Colors.accent[0]
-  },
-  icon: {
-    width: 24,
-    height: 24,
-  },
-  image: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    resizeMode: "cover",
-  },
-  row: {
-    width: "100%",
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  scrollView: {
-    width: "100%",
-    height: 451,
-    overflow: 'hidden',
-    marginTop: 16
-  },
-})
+const styles = StyleSheet.create({ 
+});

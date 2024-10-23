@@ -31,11 +31,11 @@ export default function AboutView() {
           >
             {Participants.map((student) => (
               <CardParticipant 
-              key={student.lastname}
-              lastname={student.lastname}
-              avatar={student.avatar}
-              description={student.description}
-              role={student.role}
+                key={student.lastname}
+                lastname={student.lastname}
+                avatar={student.avatar}
+                description={student.description}
+                role={student.role}
               />
             ))}
           </View>

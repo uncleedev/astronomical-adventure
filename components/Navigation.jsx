@@ -4,10 +4,14 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import MenuModal from './MenuModal';
 
 export default function Navigation({ isBack = false }) {
-  const [openModal, setOpenModal] = useState(false); 
+  const [openModal, setOpenModal] = useState(false);
 
   const handleBackPress = () => {
-    router.push("home");
+    try {
+      router.push("home");
+    } catch (error) {
+      console.error("Error navigating back to home:", error);
+    }
   };
 
   const handleMenuPress = () => {
@@ -20,19 +24,25 @@ export default function Navigation({ isBack = false }) {
 
   return (
     <View style={[styles.container, isBack ? styles.backContainer : styles.defaultContainer]}>
-        
       {!openModal && (
         <>
           {isBack && (
-            <TouchableOpacity onPress={handleBackPress}>
+            <TouchableOpacity
+              onPress={handleBackPress}
+              accessibilityRole="button"
+              accessibilityLabel="Back"
+            >
               <Image
                 source={require("../assets/icons/back.png")}
                 style={styles.iconSmall}
               />
             </TouchableOpacity>
           )}
-          
-          <TouchableOpacity onPress={handleMenuPress}>
+          <TouchableOpacity
+            onPress={handleMenuPress}
+            accessibilityRole="button"
+            accessibilityLabel="Menu"
+          >
             <Image
               source={require("../assets/icons/menu.png")}
               style={styles.iconLarge}
@@ -40,7 +50,6 @@ export default function Navigation({ isBack = false }) {
           </TouchableOpacity>
         </>
       )}
-
       {openModal && (
         <MenuModal
           setOpenModal={setOpenModal}
