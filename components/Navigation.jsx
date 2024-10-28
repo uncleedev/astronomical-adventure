@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
+    marginTop: 24
   },
   backContainer: {
     justifyContent: "space-between",

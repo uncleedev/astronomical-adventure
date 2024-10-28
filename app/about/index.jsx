@@ -3,7 +3,7 @@ import React from 'react'
 import { Colors } from '../../constants/Colors'
 import Navigation from '../../components/Navigation'
 import Typography from '../../components/Typography'
-import { Participants } from '../../constants/Participants'
+import { Participants } from '../../libs/Participants'
 import CardParticipant from '../../components/CardParticipant'
 
 export default function AboutView() {

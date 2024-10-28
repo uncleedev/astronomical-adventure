@@ -8,7 +8,7 @@ import ImageAnimation from '../../../components/ImageAnimation';
 import BackgroundImage from '../../../components/BackgroundImage';
 import Divider from '../../../components/Divider';
 import CustomSwiper from '../../../components/CustomSwiper';
-import { Planets } from '../../../constants/Planets';
+import { Planets } from '../../../libs/Planets';
 
 export default function PlanetView() {
     const data = useLocalSearchParams();

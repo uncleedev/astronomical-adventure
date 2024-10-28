@@ -57,7 +57,7 @@ export default function MenuModal({ setOpenModal, onCloseModal }) {
         >
           <BoxShadow cmElevation={2}>
             <View style={{backgroundColor: Colors.background, borderRadius: 10}}>
-              <Typography type="h3" myStyle={styles.itemText}>Login</Typography>
+              <Typography type="h3" myStyle={styles.itemText}>Log out</Typography>
             </View>
           </BoxShadow>
         </TouchableOpacity>

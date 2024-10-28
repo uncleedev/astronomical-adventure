@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Typography from '../../components/Typography'
 import { router } from 'expo-router';
 import CardPlanet from '../../components/CardPlanet';
-import { Planets } from '../../constants/Planets';
+import { Planets } from '../../libs/Planets';
 import { Colors } from '../../constants/Colors';
 import Navigation from '../../components/Navigation';
 import BackgroundImage from '../../components/BackgroundImage';

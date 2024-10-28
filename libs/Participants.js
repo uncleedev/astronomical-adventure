@@ -34,5 +34,5 @@ export const Participants = [
         role: "Prototyping",
         description: "I am responsible for the prototype and animation of the project.",
         avatar: require("../assets/images/pornel.jpg")
-    }
+    },
 ]
