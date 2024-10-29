@@ -13,7 +13,8 @@
       "backgroundColor": "#1C1C1C"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.uncled3v.astronomicaladventure"
     },
     "android": {
       "adaptiveIcon": {

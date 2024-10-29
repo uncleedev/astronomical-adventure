@@ -31,7 +31,7 @@ const ImageAnimation = ({image, cmheight, cmwidth, cmstyle}) => {
     <View style={styles.container}>
       <Animated.Image
         source={image ? image : defaultImage}
-        style={[{height: cmheight ? cmheight : 200, width: cmwidth ? cmheight : 200}, { transform: [{ rotate: rotateInterpolate }] }, cmstyle]}
+        style={[{height: cmheight ? cmheight : 175, width: cmwidth ? cmheight : 175}, { transform: [{ rotate: rotateInterpolate }] }, cmstyle]}
       />
     </View>
   );

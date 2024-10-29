@@ -3,10 +3,10 @@ import React, { Children } from 'react'
 import BoxShadow from './BoxShadow'
 import { Colors } from '../constants/Colors'
 
-export default function Divider({children}) {
+export default function Divider({children, cmstyle}) {
   return (
     <BoxShadow cmRadius={28}>
-        <View style={styles.container}>
+        <View style={[styles.container, cmstyle]}>
             {children}
         </View>
     </BoxShadow>

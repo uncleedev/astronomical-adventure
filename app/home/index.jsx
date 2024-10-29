@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     width: "100%",
-    height: 451,
+    height: "75%",
     overflow: 'hidden',
     marginTop: 10,
   },

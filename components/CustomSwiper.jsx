@@ -21,7 +21,9 @@ export default function CustomSwiper({ index = 0  }) {
             image={planet.image}
           />
 
-          <Divider>
+          <Divider
+              
+          >
             <Typography type={"h2"} myStyle={{ borderBottomColor: Colors.accent[0], borderBottomWidth: 1, width: 100, paddingBottom: 6 }}>
                 {planet.name}
             </Typography>

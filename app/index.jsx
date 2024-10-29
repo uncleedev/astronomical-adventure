@@ -38,7 +38,7 @@ export default function Index() {
             <View
               style={{gap: 8}}
             >
-              <Typography type={"h1"}>ASTRONOMICAL <Typography type={"h1"} color={Colors.primary[0]}>ADENTURE</Typography></Typography>
+              <Typography type={"h1"}>ASTRONOMICAL <Typography type={"h1"} color={Colors.primary[0]}>ADVENTURE</Typography></Typography>
               <Typography type={"h4"}>A Journey Through Space</Typography>
             </View>
 
