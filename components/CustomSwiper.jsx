@@ -27,7 +27,7 @@ export default function CustomSwiper({ index = 0  }) {
             <Typography type={"h2"} myStyle={{ borderBottomColor: Colors.accent[0], borderBottomWidth: 1, width: 100, paddingBottom: 6 }}>
                 {planet.name}
             </Typography>
-            <Typography type={"p"} myStyle={{ letterSpacing: 2, marginTop: 16 }}>
+            <Typography type={"p"} myStyle={{ letterSpacing: 2, marginTop: 16, textAlign: "justify" }}>
                 {planet.details}
             </Typography>
           </Divider>
