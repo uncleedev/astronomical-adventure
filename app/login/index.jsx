@@ -10,8 +10,39 @@ import { Colors } from '../../constants/Colors';
 import BackgroundImage from '../../components/BackgroundImage';
 import Divider from '../../components/Divider';
 import RenderPlanets from '../../components/RenderPlanets';
+import { auth, GoogleSignin } from '../../firebaseInit';
 
 export default function LoginView() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      await auth().signInWithEmailAndPassword(email, password);
+      router.push('home');
+    } catch (error) {
+      Alert.alert('Login Error', error.message);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      // Check if your device supports Google Play
+      await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+      // Get the users ID token
+      const { idToken } = await GoogleSignin.signIn();
+
+      // Create a Google credential with the token
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+      // Sign-in the user with the credential
+      await auth().signInWithCredential(googleCredential);
+      router.push('home');
+    } catch (error) {
+      Alert.alert('Google Sign-In Error', error.message);
+    }
+  };
 
   const [isChecked, setChecked] = useState(false);
 
@@ -52,9 +83,11 @@ export default function LoginView() {
             }}
           >
             <CustomInput 
-              placeholder="Username" 
+              placeholder="Email" 
               type="text"
               leftIcon={require("../../assets/icons/username.png")}
+              value={email}
+              onChangeText={setEmail}
             />
 
             <CustomInput 
@@ -62,6 +95,8 @@ export default function LoginView() {
               type="password"
               leftIcon={require("../../assets/icons/password.png")}
               rightIcon="true"
+              value={password}
+              onChangeText={setPassword}
             />
           </View>
           
@@ -101,7 +136,7 @@ export default function LoginView() {
 
           <CustomButton 
             title={"LOGIN"}
-            onPress={() => router.push("home")}
+            onPress={handleLogin}
           />
 
           <View
@@ -124,6 +159,7 @@ export default function LoginView() {
           <IconButton 
             title={"Continue with google"}
             icon={require("../../assets/icons/google.png")}
+            onPress={handleGoogleSignIn}
           />
 
           <View
