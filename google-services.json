@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "9466628787",
+    "project_id": "astronomical-adventure",
+    "storage_bucket": "astronomical-adventure.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9466628787:android:e8410908ea26e29994fec6",
+        "android_client_info": {
+          "package_name": "uncledev.astronomicaladventure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9466628787-jk5sfeoni7igqmfjetr84jmfc5gm9hpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBofSeH7Y2qg2LFGQjzLQR9Ea-QoA7866Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9466628787-jk5sfeoni7igqmfjetr84jmfc5gm9hpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
