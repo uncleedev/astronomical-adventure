@@ -4,8 +4,22 @@ import Typography from './Typography';
 import { Colors } from '../constants/Colors';
 import { router } from 'expo-router';
 import BoxShadow from './BoxShadow';
+import { auth, googleSignIn } from '../configs/firebase';
 
 export default function MenuModal({ setOpenModal, onCloseModal }) {
+
+  
+
+  const handleLogout = async () => {
+    try {
+      await googleSignIn.revokeAccess();
+      await googleSignIn.signOut();
+      await auth().signOut();
+      router.replace('login');
+    } catch (error) {
+      console.error('Logout error:', error);
+    } 
+  };
   return (
     <Modal
       transparent={true}
@@ -50,7 +64,7 @@ export default function MenuModal({ setOpenModal, onCloseModal }) {
         </TouchableOpacity>
 
         <TouchableOpacity 
-          onPress={() => router.push("login")} 
+          onPress={handleLogout} 
           style={styles.itemContainer} 
           accessibilityRole="button" 
           accessibilityLabel="Navigate to Login"

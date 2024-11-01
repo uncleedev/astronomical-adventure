@@ -7,9 +7,7 @@ export default function CustomInput({
     placeholder, 
     type = 'text', 
     rightIcon = false,
-    leftIcon,
-    onChangeText,
-    value 
+    leftIcon 
 }) {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
@@ -32,8 +30,6 @@ export default function CustomInput({
                     placeholderTextColor={'#9B9DA2'}
                     onFocus={() => setIsFocused(true)} 
                     onBlur={() => setIsFocused(false)} 
-                    onChangeText={onChangeText}
-                    value={value}
                 />
                 {rightIcon && (
                     <TouchableOpacity onPress={togglePasswordVisibility} style={styles.rightIcon}>

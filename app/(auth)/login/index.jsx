@@ -52,11 +52,6 @@ export default function LoginView() {
     }
   }
 
-  const signinWithGoogle = () => {
-    // using firebase
-  }
-
-
   const [isChecked, setChecked] = useState(false);
 
   const toggleCheckbox = () => {
@@ -110,6 +105,7 @@ export default function LoginView() {
               rightIcon="true"
               onChangeText={setPassword}
               value={password}
+
             />
           </View>
           
