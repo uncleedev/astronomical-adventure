@@ -14,14 +14,16 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.uncled3v.astronomicaladventure"
+      "bundleIdentifier": "com.uncled3v.astronomicaladventure",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#1C1C1C"
       },
-      "package": "com.uncled3v.astronomicaladventure"
+      "package": "com.uncled3v.astronomicaladventure",
+      "googleServicesFile": "./GoogleService-Info.json"
     },
     "web": {
       "bundler": "metro",
@@ -30,7 +32,14 @@
     },
     "plugins": [
       "expo-router",
-      "@react-native-google-signin/google-signin"
+      "@react-native-google-signin/google-signin",
+      ["expo-build-properties", {
+        "ios": {
+          "useFrameworks": "static"
+        }
+      }],
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth"
     ],
     "experiments": {
       "typedRoutes": true

@@ -4,7 +4,7 @@ import Typography from './Typography';
 import { Colors } from '../constants/Colors';
 import { router } from 'expo-router';
 import BoxShadow from './BoxShadow';
-import { auth, GoogleSignin } from '../firebaseInit';
+import { auth, googleSignIn } from '../configs/firebase';
 
 export default function MenuModal({ setOpenModal, onCloseModal }) {
 
@@ -12,8 +12,8 @@ export default function MenuModal({ setOpenModal, onCloseModal }) {
 
   const handleLogout = async () => {
     try {
-      await GoogleSignin.revokeAccess();
-      await GoogleSignin.signOut();
+      await googleSignIn.revokeAccess();
+      await googleSignIn.signOut();
       await auth().signOut();
       router.replace('login');
     } catch (error) {

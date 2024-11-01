@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView } from 'react-native'
+import { ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, Alert } from 'react-native'
 import React, { useState } from 'react'
 import Typography from '../../components/Typography'
 import CustomInput from '../../components/CustomInput'
@@ -10,7 +10,6 @@ import { Colors } from '../../constants/Colors';
 import BackgroundImage from '../../components/BackgroundImage';
 import Divider from '../../components/Divider';
 import RenderPlanets from '../../components/RenderPlanets';
-import { auth, GoogleSignin } from '../../firebaseInit';
 
 export default function LoginView() {
 
@@ -29,9 +28,9 @@ export default function LoginView() {
   const handleGoogleSignIn = async () => {
     try {
       // Check if your device supports Google Play
-      await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+      await googleSignIn.hasPlayServices({ showPlayServicesUpdateDialog: true });
       // Get the users ID token
-      const { idToken } = await GoogleSignin.signIn();
+      const { idToken } = await googleSignIn.signIn();
 
       // Create a Google credential with the token
       const googleCredential = auth.GoogleAuthProvider.credential(idToken);
