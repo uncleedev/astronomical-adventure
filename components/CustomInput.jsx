@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import BoxShadow from './BoxShadow';
 import { Colors } from '../constants/Colors';
 
-export default function Testiing({ 
+export default function CustomInput({ 
     placeholder, 
     type = 'text', 
     rightIcon = false,
-    leftIcon 
+    leftIcon,
+    onChangeText,
+    value 
 }) {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
@@ -30,6 +32,8 @@ export default function Testiing({
                     placeholderTextColor={'#9B9DA2'}
                     onFocus={() => setIsFocused(true)} 
                     onBlur={() => setIsFocused(false)} 
+                    onChangeText={onChangeText}
+                    value={value}
                 />
                 {rightIcon && (
                     <TouchableOpacity onPress={togglePasswordVisibility} style={styles.rightIcon}>

@@ -25,7 +25,13 @@ export default function RootLayout() {
             }} 
           />
           <Stack.Screen 
-            name='login/index'
+            name='(auth)/login/index'
+            options={{
+              headerShown: false
+            }} 
+          />
+          <Stack.Screen 
+            name='(auth)/signup/index'
             options={{
               headerShown: false
             }} 
@@ -48,6 +54,8 @@ export default function RootLayout() {
               headerShown: false
             }} 
           />
+
+
 
       </Stack>
   )
